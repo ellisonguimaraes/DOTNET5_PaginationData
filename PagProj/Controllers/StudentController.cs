@@ -1,10 +1,7 @@
-using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using PagProj.Business.Interface;
-using PagProj.Models;
-using PagProj.Models.Context;
+using PagProj.Models.Pagination;
 
 namespace PagProj.Controllers
 {
@@ -19,8 +16,8 @@ namespace PagProj.Controllers
             _studentBusiness = studentBusiness;
         }
 
-        [HttpGet]
-        public IActionResult Get([FromQuery] PaginationParameters paginationParameters) 
+        [HttpGet("{PageNumber}/{PageSize}")]
+        public IActionResult Get([FromRoute] PaginationParameters paginationParameters) 
         {
             var students = _studentBusiness.GetAll(paginationParameters);
 
@@ -29,7 +26,8 @@ namespace PagProj.Controllers
                 students.PageSize,
                 students.CurrentPage,
                 students.HasNext,
-                students.HasPrevious
+                students.HasPrevious,
+                students.TotalPages
             };
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(metadata));

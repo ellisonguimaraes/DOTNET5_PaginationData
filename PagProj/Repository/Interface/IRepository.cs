@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using PagProj.Models;
+using PagProj.Models.Pagination;
 
 namespace PagProj.Repository.Interface
 {

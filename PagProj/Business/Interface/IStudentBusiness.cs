@@ -1,4 +1,5 @@
 using PagProj.Models;
+using PagProj.Models.Pagination;
 
 namespace PagProj.Business.Interface
 {

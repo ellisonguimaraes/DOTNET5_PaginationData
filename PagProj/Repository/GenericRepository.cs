@@ -1,9 +1,9 @@
 using System.Data;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using PagProj.Models;
+using PagProj.Models.Pagination;
 using PagProj.Models.Context;
 using PagProj.Repository.Interface;
 
@@ -24,11 +24,13 @@ namespace PagProj.Repository
 
         public PagedList<T> GetAll(PaginationParameters paginationParameters)
         {
-            return PagedList<T>.ToPagedList(
+            PagedList<T> pagedList = new PagedList<T>(
                 _dataset.OrderBy(i => i.Id),
                 paginationParameters.PageNumber,
                 paginationParameters.PageSize
             );
+
+            return pagedList;
         }
 
         public T Create(T item)
