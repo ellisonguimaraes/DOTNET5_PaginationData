@@ -44,7 +44,7 @@ namespace PagProj
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { 
-                    Title = "PagProj", 
+                    Title = "Pagination Project", 
                     Version = "v1",
                     Description = "Base project for Data Pagination",
                     Contact = new OpenApiContact {

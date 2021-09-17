@@ -4,5 +4,15 @@
         <name>PagProj</name>
     </assembly>
     <members>
+        <member name="M:PagProj.Controllers.StudentController.Get(PagProj.Models.Pagination.PaginationParameters)">
+            <summary> Obter estudantes de forma paginada </summary>
+            <remarks>
+            A quantidade de elementos por página (PageSize) não pode ultrapassar 50 
+            </remarks>
+            <param name="paginationParameters">Número da página (PageNumber) e quantidade de elementos por página (PageSize)</param>
+            <returns>PaginateData</returns>
+            <response code="200">OK - Estudantes retornados</response>
+            <response code="400">BadRequest - Requisição do Cliente é Inválida</response>
+        </member>
     </members>
 </doc>
